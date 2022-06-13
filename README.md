@@ -25,25 +25,22 @@
       <a href="#about-the-project">About The Project</a>
       <ul>
         <li><a href="#tech-stack">Tech Stack</a></li>
+        <li><a href="#usage">Usage</a></li>
         <li><a href="#database-model">Database Model</a></li>
       </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-      </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </details>
 
+<br />
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
-
-<br />
 
 ### Tech Stack
 
@@ -51,6 +48,24 @@
 <strong>Frontend:</strong> JavaScript, [AJAX](https://developer.mozilla.org/en-US/docs/Web/Guide/AJAX), [Jinja](https://jinja.palletsprojects.com/en/3.1.x/), [Bootstrap](https://getbootstrap.com), HTML5, CSS3, [JQuery](https://jquery.com)
 <br />
 <br />
+
+### Usage
+
+#### Registration
+
+Returning users are able to “log in” (by entering their username).
+[![MelonWell Main Page][melonwell-index]](#)
+
+#### Search for available time slots
+
+Users are able to pick a date and see time slots available for reservation. If the user has already booked an appointment on the chosen date the error message will be shown.
+Declaring the composite UniqueConstraint as part of the `_table_args_` helps to enforse one reservation per user per day limit.
+[![MelonWell Main Page][melonwell-new-reservation]](#)
+
+#### Scheduled appointments
+
+The page shows all reservations for a given user.
+[![MelonWell Main Page][melonwell-reservations]](#)
 
 ### Database Model
 
@@ -118,28 +133,6 @@ $ python -i model.py
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-### Registration
-
-Returning users are able to “log in” (by entering their username).
-[![MelonWell Main Page][melonwell-index]](#)
-
-### Search for available time slots
-
-Users are able to pick a date and see time slots available for reservation. If the user has already booked an appointment on the chosen date the error message will be shown.
-Declaring the composite UniqueConstraint as part of the `_table_args_` helps to enforse one reservation per user per day limit.
-[![MelonWell Main Page][melonwell-new-reservation]](#)
-
-### Scheduled appointments
-
-The page shows all reservations for a given user.
-[![MelonWell Main Page][melonwell-reservations]](#)
-
-<!-- CONTACT -->
 
 ## Version 2.0
 
