@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Melon Tasting Reservation</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <script src="/static/actions.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <header class="navbar">
+                    <a href="#" class="navbar-brand"><img class="mb-4" src="/static/melon.png" alt="" width="72" height="57"><span id="logo">MelonWell</span></a>
+                    <div class="col-lg-6 col-xl-auto">
+                        <form class="d-flex" action="/reservations/new">
+                            <button class="w-100 btn btn-lg btn-primary" type="submit">New Reservation</button>
+                        </form>
+                        <form class="d-flex" action="/logout">
+                          <button class="w-100 btn btn-lg btn-primary" type="submit">Log Out</button>
+                      </form>
+					          </div>
+                </header>
+            </div>
+            <div class="row">
+                <div class="col">
+                    &nbsp;
+                </div>
+                <div class="col-6">
+                    {% for msg in get_flashed_messages() %}
+                      <p id="flashed-msg" class="flashed-msg">{{ msg }}</p>
+                    {% endfor %}
+                    <h1>All reservations</h1>
+                    <p>Please review your reservations, {{ username[0]|upper }}{{ username[1:] }}, and delete if your plans changed.</p>
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">&nbsp;</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for reservation in all_reservations %}
+                          <tr id="reservation-row-{{reservation.id}}">
+                            <th scope="row">{{ loop.index }}</th>
+                            <td>{{ reservation.reservation_date.strftime('%Y-%m-%d') }}</td>
+                            <td>{{ reservation.time_slot }}</td>
+                            <td><button class="btn btn-sm btn-primary" type="submit" onclick="deleteItem({{reservation.id}})">Delete</button></td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                </div>
+                <div class="col">
+                    &nbsp;
+                </div>
+            </div>
+            </div>
+    </body>
+</html>

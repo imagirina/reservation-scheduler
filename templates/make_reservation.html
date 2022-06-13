@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Melon Tasting Reservation</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/static/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
+        <script src="/static/actions.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <header class="navbar">
+                    <a href="#" class="navbar-brand"><img class="mb-4" src="/static/melon.png" alt="" width="72" height="57"><span id="logo">MelonWell</span></a>
+                    <div class="col-lg-6 col-xl-auto">
+                        <form class="d-flex" action="/reservations">
+                            <button class="w-100 btn btn-lg btn-primary" type="submit">My reservations</button>
+                        </form>
+                        <form class="d-flex" action="/logout">
+                            <button class="w-100 btn btn-lg btn-primary" type="submit">Log Out</button>
+                        </form>
+					</div>
+                </header>
+            </div>
+            <div class="row">
+                <div class="col">
+                    &nbsp;
+                </div>
+                <div class="col-6">
+                    <h1>Make a Reservation to Join Us<br />for a Tasting!</h1>
+                    <p>Reservations are not required but recommended for this tasting of current releases.</p>
+                    <p>Seated tastings at the lounge area, in the Tasting Room or on the Terrace are $45 per person.</p>
+                    <i>Tasting starting at 8:00am and lasts until 5:00pm.</i>
+                    <form action="/reservations/new" method="POST">
+                        <div class="reservation_date">
+                            <div class="user-box">
+                                <input type='date' name='date' id='reservation_date' value='' required onchange="availableTimeSlots(event)"/>
+                            </div>
+                            <span class="text-muted">{{ username[0]|upper}}{{username[1:] }}, please select a date.</span>
+                        </div>
+                        {% for msg in get_flashed_messages() %}
+                            <br />
+                            <p id="flashed-msg" class="flashed-msg">{{ msg }}</p>
+                        {% endfor %}
+                        <input type="hidden" name="timeslot" id="timeslot" />
+                        <div id="slots">
+                            {% for timeslot in timeslots %}
+                                <button class="btn btn-sm btn-primary" value="{{ timeslot }}" type="button" {% if timeslot in booked_timeslots %}disabled {% endif %}onclick="timeslotSelected(this);">{{ timeslot }}</button>
+                            {% endfor %}
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Reserve time slot</button>
+                    </form>
+                </div>
+                <div class="col">
+                    &nbsp;
+                </div>
+            </div>
+            </div>            
+    </body>
+</html>

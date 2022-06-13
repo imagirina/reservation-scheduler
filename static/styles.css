@@ -1,0 +1,136 @@
+.navbar {
+    margin-top: 20px;
+}
+
+.bg-image {
+    background-image: url("lee-myungseong-unsplash.jpg");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#logo {
+    line-height: 1.5;
+    font-family: "Great Vibes", sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-left: 7px;
+}
+
+.logo_font {
+    font-family: "Great Vibes", sans-serif;
+    font-size: 2.4em;
+    color: #dee2e6;
+    margin: 50px 0;
+}
+
+.bg-black {
+    background-color: #000;
+    --bs-dark: #000;
+}
+
+
+.login-box {
+    margin: 0 30px;
+}
+
+.text-muted {
+    font-size: 0.9em;
+}
+
+.reservation_date .user-box input {
+    font-size: 16px;
+    color: #000;
+    border: none;
+    border-bottom: 1px solid #495057;
+    outline: none;
+    background: transparent;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 1.7em;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid #495057;
+    outline: none;
+    background: transparent;
+}
+
+.login-box .user-box label {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus~label,
+.login-box .user-box input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+}
+
+.login-box .btn-primary,
+.btn-primary {
+    background-color: #000;
+    --bs-btn-border-color: #495057;
+    color: #dee2e6;
+}
+
+.login-box .btn-primary:hover,
+.btn-primary {
+    --bs-btn-hover-border-color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #CAD38C;
+    color: #000;
+    border: 1px solid #CAD38C;
+}
+
+#slots {
+    margin: 30px 0 30px 0;
+    text-align: center;
+}
+
+#slots button.btn-sm {
+    width: 19%;
+    margin-bottom: 3px;
+}
+
+.flashed-msg {
+    color: #CAD38C;
+    font-size: 0.9em;
+}
+
+h1 {
+    font-size: 2.5em;
+}
+
+.d-flex {
+    display: inline;
+    float: left;
+    margin-left: 5px;
+}
+
+
+#slots button.btn-sm:disabled,
+#slots button.btn-sm[disabled] {
+    border: 1px solid #cccccc;
+    background-color: #cccccc;
+    color: #666666;
+}
