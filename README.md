@@ -11,8 +11,7 @@
     <br />
     Simple service to help users make reservations to go to a fancy melon tasting.
     <br />
-    <a href="#">View Demo</a>·
-    <br />
+    <a href="https://melonwell.herokuapp.com/">View MelonWell App</a>
     <br />
   </p>
 </div>
