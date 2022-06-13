@@ -1,3 +1,4 @@
+import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import UniqueConstraint
 
@@ -94,8 +95,10 @@ class Reservation(db.Model):
 
 def connect_to_db(flask_app, echo=True):
     """ Connect the database to our Flask app """
-
-    flask_app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///melonreservations'
+    database_uri = os.environ.get('DATABASE_URL')
+    if database_uri is None:
+        database_uri = 'postgresql:///melonreservations'
+    flask_app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
     flask_app.config['SQLALCHEMY_ECHO'] = echo # True by default (enable output of the raw SQL executed by SQLAlchemy)
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
