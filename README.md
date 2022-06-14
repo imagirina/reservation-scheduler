@@ -101,10 +101,10 @@ Install dependencies:
 $ pip install -r requirements.txt
 ```
 
-Create database `spreadsheetapi` (run from bash and not from psql):
+Create database `melonreservations` (run from bash and not from psql):
 
 ```sh
-$ createdb spreadsheetapi
+$ createdb melonreservations
 ```
 
 Seed the database:
@@ -128,7 +128,7 @@ http://localhost:5000/
 If you want to use SQLAlchemy to query the database, run in interactive mode:
 
 ```sh
-$ python -i model.py
+$ python -i models.py
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
